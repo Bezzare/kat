@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  link: MyString
+  name: MyString
+  size: MyString
+  files: 1
+  age: MyString
+  seed: 1
+  leech: 1
+  imdb: 
+
+two:
+  category: MyString
+  link: MyString
+  name: MyString
+  size: MyString
+  files: 1
+  age: MyString
+  seed: 1
+  leech: 1
+  imdb: 
