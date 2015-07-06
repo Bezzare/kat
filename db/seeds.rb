@@ -33,3 +33,20 @@ Movie.create(link: "https://kat.cr/kingsman-the-secret-service-2014-1080p-brrip-
              seed: "12930",
              leech: "2614")
 
+20.times do |n|
+      name = Faker::Name.name
+      size = Faker::Number.between(2, 10).to_s + " GB"
+      files = Faker::Number.between(1, 5)
+      age = Faker::Number.between(1, 5).to_s + " weeks"
+      seed = Faker::Number.between(50, 20000)
+      leech = Faker::Number.between(50, 20000)
+      imdb = Faker::Number.decimal(1,1)
+
+      Movie.create(name: name,
+                   size: size,
+                   files: files,
+                   age: age,
+                   seed: seed,
+                   leech: leech,
+                   imdb: imdb)
+end
