@@ -6,8 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Movie.create(category: "movie",
-             link: "https://kat.cr/home-2015-720p-brrip-x264-yify-t10886820.html",
+Movie.create(link: "https://kat.cr/home-2015-720p-brrip-x264-yify-t10886820.html",
              name: "Home 2015",
              size: "755.27 MB",
              files: "3",
@@ -16,8 +15,7 @@ Movie.create(category: "movie",
              leech: "7525",
              imdb: "6.7")
 
-Movie.create(category: "movie",
-             link: "https://kat.cr/jurassic-world-2015-hd-ts-xvid-ac3-hq-hive-cm8-t10793417.html",
+Movie.create(link: "https://kat.cr/jurassic-world-2015-hd-ts-xvid-ac3-hq-hive-cm8-t10793417.html",
              name: "Jurassic World 2015",
              size: "1.69 GB",
              files: "4",
@@ -27,8 +25,7 @@ Movie.create(category: "movie",
              imdb: "8.0")
 
 
-Movie.create(category: "movie",
-             link: "https://kat.cr/kingsman-the-secret-service-2014-1080p-brrip-x264-yify-t10671319.html",
+Movie.create(link: "https://kat.cr/kingsman-the-secret-service-2014-1080p-brrip-x264-yify-t10671319.html",
              name: "Kingsman",
              size: "1.95 GB",
              files: "2",

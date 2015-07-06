@@ -5,8 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>Category</th>
-      <th>Link</th>
       <th>Name</th>
       <th>Size</th>
       <th>Files</th>
@@ -21,15 +19,13 @@
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
-        <td><%= movie.category %></td>
-        <td><%= movie.link %></td>
         <td><%= movie.name %></td>
         <td><%= movie.size %></td>
         <td><%= movie.files %></td>
         <td><%= movie.age %></td>
         <td><%= movie.seed %></td>
         <td><%= movie.leech %></td>
-        <td><%= movie.imdb %></td>
+        <td><%= movie.imdb || 0 %></td>
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
