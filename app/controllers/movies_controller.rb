@@ -1,10 +1,11 @@
 class MoviesController < ApplicationController
+  helper_method :sort_column, :sort_direction
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.paginate(per_page: 5, page: params[:page])
+    @movies = Movie.order(sort_column + " " + sort_direction).paginate(per_page: 5, page: params[:page])
   end
 
   # GET /movies/1
@@ -69,6 +70,31 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:category, :link, :name, :size, :files, :age, :seed, :leech, :imdb)
+      params.require(:movie).permit(:category, :link, :name, :size, :files, :age, :seed, :leech, :imdb, :direction)
     end
+
+    def sort_column
+      Movie.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
