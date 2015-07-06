@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706053116) do
+ActiveRecord::Schema.define(version: 20150706060433) do
 
   create_table "movies", force: :cascade do |t|
-    t.string   "category"
+    t.string   "category",   default: "movie"
     t.string   "link"
     t.string   "name"
     t.string   "size"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20150706053116) do
     t.integer  "seed"
     t.integer  "leech"
     t.decimal  "imdb"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "movies", ["age"], name: "index_movies_on_age"
