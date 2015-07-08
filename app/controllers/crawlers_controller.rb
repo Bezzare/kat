@@ -24,10 +24,10 @@ class CrawlersController < ApplicationController
         logger.debug "retrieving page #{page}"
 
         site = "http://kat.cr/movies/#{page}/?field=seeders&sorder=desc"
-        local_fname = "#{LOCAL_DIR}/#{page}.html"
         local_dir = 'data_hold'
+        local_fname = "#{local_dir}/#{page}.html"
 
-        FileUtils.makedirs(LOCAL_DIR) unless File.exists?local_dir
+        FileUtils.makedirs(local_dir) unless File.exists?local_dir
 
         if File.exists?(local_fname)
             logger.debug "Reading local #{local_fname}"
