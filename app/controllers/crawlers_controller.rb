@@ -1,4 +1,4 @@
-
+require 'open-uri'
 class CrawlersController < ApplicationController
 
   def new
