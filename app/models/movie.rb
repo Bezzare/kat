@@ -13,14 +13,6 @@ class Movie < ActiveRecord::Base
     validates :name, presence: true
     validates :link, presence: true
 
-    def self.search(search)
-      if search
-        where('name LIKE ?', "%#{search}%")
-      else
-        all
-      end
-    end
-
     private
 
         def convert_age
