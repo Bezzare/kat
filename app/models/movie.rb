@@ -1,4 +1,5 @@
 class Movie < ActiveRecord::Base
+
     # link:string
     # name:string
     # size:string
@@ -8,6 +9,10 @@ class Movie < ActiveRecord::Base
     # leech:integer
     # imdb:real
 
+    before_save :convert_age
+    validates :name, presence: true
+    validates :link, presence: true
+
     def self.search(search)
       if search
         where('name LIKE ?', "%#{search}%")
@@ -15,4 +20,16 @@ class Movie < ActiveRecord::Base
         all
       end
     end
+
+    private
+        def convert_age
+        end
 end
+
+
+
+
+
+
+
+
