@@ -22,6 +22,7 @@ class Movie < ActiveRecord::Base
     end
 
     private
+
         def convert_age
         end
 end

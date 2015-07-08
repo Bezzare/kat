@@ -29,7 +29,7 @@
     <% @movies.each do |movie| %>
       <tr>
         <td><%= link_to movie.name, movie.link %></td>
-        <td><%= movie.size %></td>
+        <td><%= number_to_human_size(movie.size) %></td>
         <td><%= movie.files %></td>
         <td><%= movie.age %></td>
         <td><%= movie.seed %></td>

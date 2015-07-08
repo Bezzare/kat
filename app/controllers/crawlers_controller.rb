@@ -12,6 +12,13 @@ class CrawlersController < ApplicationController
 
   private
 
+    def human_size_to_bytes(num)
+      @regex = /^([0-9]+\.?[0-9]*?) (.*)/
+      @sizes = { 'KB' => 1024, 'MB' => 1024**2, 'GB' => 1024**3}
+      m = num.match(@regex)
+      return (m[1].to_f * @sizes[m[2]]).to_i
+    end
+
     def crawl
         records = 0
         for page in 1..2
@@ -49,10 +56,11 @@ class CrawlersController < ApplicationController
         base = "http://kat.cr"
         new_records = 0
         records.each do |r|
+            logger.debug "processing #{new_records}th records "
             maincell = r.css("a.cellMainLink")[0]
             m = Movie.new(link: base + maincell["href"],
                           name: maincell.text,
-                          size:  r.css("td")[1].text,
+                          size:  human_size_to_bytes(r.css("td")[1].text),
                           files: r.css("td")[2].text,
                           age:   r.css("td")[3].text,
                           seed:  r.css("td")[4].text,
@@ -64,4 +72,7 @@ class CrawlersController < ApplicationController
 
         return new_records
     end
+
+
+
 end

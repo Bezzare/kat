@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706062947) do
+ActiveRecord::Schema.define(version: 20150708060619) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "link"
     t.string   "name"
-    t.string   "size"
+    t.integer  "size",       limit: 8
     t.integer  "files"
     t.string   "age"
     t.integer  "seed"
     t.integer  "leech"
     t.decimal  "imdb"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "movies", ["age"], name: "index_movies_on_age"
