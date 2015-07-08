@@ -58,15 +58,20 @@ class CrawlersController < ApplicationController
         records.each do |r|
             logger.debug "processing #{new_records}th records "
             maincell = r.css("a.cellMainLink")[0]
-            m = Movie.new(link: base + maincell["href"],
-                          name: maincell.text,
-                          size:  human_size_to_bytes(r.css("td")[1].text),
-                          files: r.css("td")[2].text,
-                          age:   r.css("td")[3].text,
-                          seed:  r.css("td")[4].text,
-                          leech: r.css("td")[5].text,
-                          imdb: 0)
-            new_records += 1 if m.save
+
+            begin
+              m = Movie.new(link: base + maincell["href"],
+                            name: maincell.text,
+                            size:  human_size_to_bytes(r.css("td")[1].text),
+                            files: r.css("td")[2].text,
+                            age:   r.css("td")[3].text,
+                            seed:  r.css("td")[4].text,
+                            leech: r.css("td")[5].text,
+                            imdb: 0)
+              new_records += 1 if m.save
+            rescue ActiveRecord::RecordNotUnique
+              logger.debug "(#{maincell.text}) already exists"
+            end
         end
         logger.debug "#{new_records} new records"
 

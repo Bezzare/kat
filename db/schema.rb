@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708060619) do
+ActiveRecord::Schema.define(version: 20150708072254) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "link"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150708060619) do
   add_index "movies", ["age"], name: "index_movies_on_age"
   add_index "movies", ["imdb"], name: "index_movies_on_imdb"
   add_index "movies", ["leech"], name: "index_movies_on_leech"
+  add_index "movies", ["name"], name: "index_movies_on_name", unique: true
   add_index "movies", ["seed"], name: "index_movies_on_seed"
   add_index "movies", ["size"], name: "index_movies_on_size"
 
